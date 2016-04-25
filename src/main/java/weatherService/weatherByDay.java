@@ -1,7 +1,6 @@
 package weatherService;
+//package weatherService;
 
-//import net.aksingh.owmjapis.CurrentWeather;
-//import net.aksingh.owmjapis.OpenWeatherMap;
 import org.bitpipeline.lib.owm.OwmClient;
 import org.bitpipeline.lib.owm.WeatherData;
 import org.bitpipeline.lib.owm.WeatherStatusResponse;
