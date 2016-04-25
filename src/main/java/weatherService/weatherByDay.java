@@ -7,8 +7,7 @@ import org.bitpipeline.lib.owm.WeatherStatusResponse;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.text.NumberFormat;
+import java.util.Scanner;
 
 /**
  * Created by Ivan on 25.04.2016.
@@ -16,8 +15,16 @@ import java.text.NumberFormat;
 public class weatherByDay {
 
     public static void main(String[] args) throws IOException, JSONException {
-        String city = "Dnipropetrovsk";
+//        String city = "Dnipropetrovsk";
         String country = "UA";
+        String city;
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter city of Ukraine:\n(Example: Kiev, Dnipropetrovsk, Lviv...)");
+        city = scan.nextLine();
+
+
+
 
         OwmClient owm = new OwmClient();
         WeatherStatusResponse currentWeather = owm.currentWeatherAtCity(city, country);
@@ -40,6 +47,7 @@ public class weatherByDay {
             System.out.println("Current Temp in city: " +city+" = "+(weather.getTemp()-celsiy));
             System.out.println("TempMax() in city: " +city+" = "+(weather.getMain().getTempMax()-celsiy));
             System.out.println("TempMin() in city: " +city+" = "+(weather.getMain().getTempMin()-celsiy));
+            System.out.println("Rain in city: " +city+" = "+weather.getWeatherConditions().get(0).getDescription().contains(city));
 
         }
     }
