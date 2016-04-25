@@ -23,6 +23,7 @@ public class weatherByDay {
         WeatherStatusResponse currentWeather = owm.currentWeatherAtCity(city, country);
         if (currentWeather.hasWeatherStatus()) {
             WeatherData weather = currentWeather.getWeatherStatus().get(0);
+//            WeatherData weather = currentWeather.getWeatherStatus().get(0);
 //            if (weather.getPrecipitation() == Integer.MIN_VALUE) {
 //                WeatherData.WeatherCondition weatherCondition = weather.getWeatherConditions().get(0);
 //                String description = weatherCondition.getDescription();
@@ -34,11 +35,11 @@ public class weatherByDay {
 //                System.out.println("It's raining in " + city+" " + weather.getPrecipitation() + " mm/h");
 
 //            ----------------
-            NumberFormat nf = NumberFormat.getCurrencyInstance();
+            float celsiy =  273.15f;
             System.out.println("WindSpeed in city: " +city+" = "+weather.getWindSpeed());
-            System.out.println("Current Temp in city: " +city+" = "+(weather.getTemp()-273.15));
-            System.out.println("TempMax() in city: " +city+" = "+(weather.getMain().getTempMax()-273.15));
-            System.out.println("TempMin() in city: " +city+" = "+(weather.getMain().getTempMin()-273.15));
+            System.out.println("Current Temp in city: " +city+" = "+(weather.getTemp()-celsiy));
+            System.out.println("TempMax() in city: " +city+" = "+(weather.getMain().getTempMax()-celsiy));
+            System.out.println("TempMin() in city: " +city+" = "+(weather.getMain().getTempMin()-celsiy));
 
         }
     }
